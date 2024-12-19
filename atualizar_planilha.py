@@ -25,7 +25,7 @@ def atualizar_planilha():
         print(f"Erro inesperado: {e}")
 
 # Agendar a tarefa
-schedule.every().day.at("09:00").do(atualizar_planilha)  # Ajuste o horário aqui
+schedule.every().day.at("17:59").do(atualizar_planilha)
 
 # Loop infinito para manter o script rodando
 print("Automação iniciada. Aguardando horário programado...")
