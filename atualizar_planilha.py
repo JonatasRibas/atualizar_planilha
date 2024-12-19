@@ -15,6 +15,11 @@ def atualizar_planilha():
         # Adicionar ou atualizar uma coluna com a data de atualização
         df['Última Atualização'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+
+        # Adiciona uma nova linha
+        nova_linha = {'Nome': 'Carlos', 'Idade': 28, 'Cidade': 'Porto Alegre'}
+        df = df.append(nova_linha, ignore_index=True)
+
         # Salvar a planilha atualizada
         df.to_excel(caminho, index=False)
         print("Planilha atualizada com sucesso!")
@@ -25,7 +30,7 @@ def atualizar_planilha():
         print(f"Erro inesperado: {e}")
 
 # Agendar a tarefa
-schedule.every().day.at("18:01").do(atualizar_planilha)
+schedule.every().day.at("18:15").do(atualizar_planilha)
 
 # Loop infinito para manter o script rodando
 print("Automação iniciada. Aguardando horário programado...")
